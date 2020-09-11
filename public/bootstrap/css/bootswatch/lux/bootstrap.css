@@ -66,6 +66,7 @@
     display: block;
     width: 22px;
     height: 2px;
+    background-color: #343a40;
     border-radius: 1px;   
 }
 
@@ -75,7 +76,7 @@
 
 @media (min-width: 768px) {
     .navbar-toggle {
-	display: none;	
+	    display: none;	
     }   
 }
 

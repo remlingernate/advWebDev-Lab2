@@ -13,3 +13,6 @@ coverage
 
 # Benchmarking
 benchmarks/graphs
+
+# Output
+nohup.out

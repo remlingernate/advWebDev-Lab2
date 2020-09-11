@@ -9,9 +9,6 @@ var indexRouter = require('./app_server/routes/index');
 
 var app = express();
 
-// sets port 8080 to default or unless otherwise specified in the environment
-app.set('port', process.env.PORT || 1337);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'ejs');
