@@ -13,4 +13,4 @@ After installing all dependencies, navigate to the project's root directory and 
 
 > sudo node ./bin/www
 
-to start the web app. Doing so will start the application on port 80 of your machine. Use a browser to navigate to the address of the machine the web app is running on, with port 80 specified, to see the application in action.
+to start the web app. Doing so will start the application on port 80 of your machine. Use a browser to navigate to the address of the machine the web app is running on to see the application in action.
