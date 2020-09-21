@@ -1,5 +1,37 @@
   <h1><%= title %></h1>
-  <p>
-    This page is currently under construction. Sorry about that.
-  </p>
-  <img class='unimportant' src='/images/underConstruction.gif' />
+  
+  <div class='container'>
+    <% for(var i = 0; i < blogs.length; ++i) { %>
+      <div class='row'>
+        <h2><%= blogs[i].blogTitle %></h2>
+      </div>
+      <div class='row date-and-control'>
+      	<div class='col pull-left'>
+          <h6><%= blogs[i].createdOn.toDateString() %></h6>
+	</div>
+	<div class='col pull-left'>
+          <form action='/blog/edit'>
+              <button type='submit' class='btn btn-dark btn-xs'>
+                <i class='fa fa-pencil'></i>
+              </button>
+              <input type='hidden' id='id' name='id' value='<%= blogs[i].id %>'>
+          </form>
+	</div>
+	<div class='col pull-left'>
+          <form action='/blog/delete'>
+              <button type='submit' class='btn btn-dark btn-xs'>
+                <i class='fa fa-trash'></i>
+              </button>	      
+              <input type='hidden' id='id' name='id' value='<%= blogs[i].id %>'>
+          </form>
+	</div>
+      </div>
+      <div class='row'>
+        <p><%=  blogs[i].blogText %></p>
+    
+        <% if(i != blogs.length - 1) { %>
+          <hr/>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
