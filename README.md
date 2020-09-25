@@ -8,6 +8,13 @@ After cloning this repo, navigate to the project's root directory and run
 
 to install the dependencies of this project.
 
+### Note
+The database connection URI is provided to the program in /app_api/models/db.js.
+
+> var dbURI = 'mongodb://\<username\>:\<password\>@localhost/\<DB\>';
+  
+Ensure you have set up your database with a username/password to allow proper access/permissions, and make the necessary changes to the dbURI variable before proceeding.
+
 ## Running the app
 After installing all dependencies, navigate to the project's root directory and run
 
