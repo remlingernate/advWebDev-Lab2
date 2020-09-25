@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://localhost/blogger';
+var dbURI = 'mongodb://blogs:blogs@localhost/Blogs';
 mongoose.connect(dbURI);
 
 // Monitor and report when database is connected
@@ -40,4 +40,4 @@ process.on('SIGINT', function() {
     });
 });
 
-require('./blogs');
+require('./blog');

@@ -7,23 +7,15 @@
       </div>
       <div class='row date-and-control'>
       	<div class='col pull-left'>
-          <h6><%= blogs[i].createdOn.toDateString() %></h6>
+          <h6>
+	    <%= new Date(blogs[i].createdOn).toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'full', timeStyle: 'short' }) %>	  
+	  </h6>
 	</div>
 	<div class='col pull-left'>
-          <form action='/blog/edit'>
-              <button type='submit' class='btn btn-dark btn-xs'>
-                <i class='fa fa-pencil'></i>
-              </button>
-              <input type='hidden' id='id' name='id' value='<%= blogs[i].id %>'>
-          </form>
+	  <a href='/blog/edit/<%= blogs[i]._id %>'><i class='fa fa-pencil'></i></a>
 	</div>
 	<div class='col pull-left'>
-          <form action='/blog/delete'>
-              <button type='submit' class='btn btn-dark btn-xs'>
-                <i class='fa fa-trash'></i>
-              </button>	      
-              <input type='hidden' id='id' name='id' value='<%= blogs[i].id %>'>
-          </form>
+	  <a href='/blog/delete/<%= blogs[i]._id %>'><i class='fa fa-trash'></i></a>
 	</div>
       </div>
       <div class='row'>
