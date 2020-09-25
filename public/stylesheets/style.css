@@ -10,3 +10,7 @@ footer {
 .date-and-control div {
     padding-right: 10px;
 }
+
+.blogText {
+    white-space: pre-wrap;
+}
