@@ -1,0 +1,25 @@
+(function () {
+    angular
+    	.module('blogApp')
+    	.controller('deleteCtrl', deleteCtrl);
+
+    function deleteCtrl ($routeParams, blogData) {
+      var vm = this;
+	
+	    blogData.blogById($routeParams.blogId)
+    	    .then(
+            function successCallback(response){
+      		    vm.data = {
+      		      blog: response.data,
+      		      title: 'Blog Delete'
+      		    };
+      	    }, 
+            function errorCallback(){
+              vm.data = {
+      		      blog: null,
+      		      title: 'Blog Delete, but something went wrong'
+      		    };
+      	    }
+          );
+    }
+}) ();
