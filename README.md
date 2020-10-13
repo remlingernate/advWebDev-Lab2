@@ -1,5 +1,5 @@
 # Blog App for CSCI 406 - Advanced Web Dev
-A simple blog web app that will be built over time as a class assignment. Makes use of the MEAN stack, with EJS as its templating engine of choice.
+A simple blog web app that will be built over time as a class assignment. Makes use of the MEAN stack, with Angular running the front-end show.
 
 ## Installation
 After cloning this repo, navigate to the project's root directory and run
