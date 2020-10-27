@@ -8,6 +8,12 @@ After cloning this repo, navigate to the project's root directory and run
 
 to install the dependencies of this project.
 
+In the root project directory, create a .env file and add
+
+> JWT_SECRET=secret
+
+where secret is any string.
+
 ### Note
 The database connection URI is provided to the program in /app_api/models/db.js.
 
