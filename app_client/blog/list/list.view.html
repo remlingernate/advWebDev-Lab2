@@ -14,10 +14,10 @@
 	    {{ blog.createdOn | formatDate }}
 	  </h6>
 	</div>
-	<div class='col pull-left'>
+	<div ng-show="vm.isLoggedIn" class='col pull-left'>
 	  <a ng-click="vm.popupEditForm(blog._id)"><i class='fa fa-pencil'></i></a>
 	</div>
-	<div class='col pull-left'>
+	<div ng-show="vm.isLoggedIn" class='col pull-left'>
 	  <a ng-click="vm.popupDeleteForm(blog._id)"><i class='fa fa-trash'></i></a>
 	</div>
       </div>

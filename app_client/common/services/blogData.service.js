@@ -3,7 +3,7 @@
         .module('blogApp')
         .service('blogData', blogData);
 
-    function blogData($http) {
+    function blogData($http, authentication) {
         var blogList = function() {
             return $http.get('/api/blogs');
         };
@@ -13,15 +13,15 @@
         };
 
         var editById = function(blogId, data) {
-            return $http.put('/api/blogs/' + blogId, data);
+            return $http.put('/api/blogs/' + blogId, data, { headers: { Authorization: 'Bearer ' + authentication.getToken() } });
         };
 
         var addById = function(data) {
-            return $http.post('/api/blogs', data);
+            return $http.post('/api/blogs', data, { headers: { Authorization: 'Bearer ' + authentication.getToken() } });
         };
 
         var deleteById = function(blogId) {
-            return $http.delete('/api/blogs/' + blogId);
+            return $http.delete('/api/blogs/' + blogId, { headers: { Authorization: 'Bearer ' + authentication.getToken() } });
         };
 
         return {

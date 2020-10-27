@@ -1,12 +1,13 @@
-(function () {
+(function() {
     angular
-	.module('blogApp')
-	.directive('navigation', navigation);
+        .module('blogApp')
+        .directive('navigation', navigation);
 
-    function navigation () {
-	return {
-	    restrict: 'EA',
-	    templateUrl: '/common/directives/navigation/navigation.template.html'
-	};
+    function navigation() {
+        return {
+            restrict: 'EA',
+            templateUrl: '/common/directives/navigation/navigation.template.html',
+            controller: 'navigationCtrl as navvm'
+        };
     }
-}) ();
+})();

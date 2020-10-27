@@ -4,7 +4,7 @@
         .controller('listCtrl', listCtrl)
         .filter('formatDate', formatDate);
 
-    function listCtrl(blogData, $uibModal) {
+    function listCtrl(blogData, $uibModal, authentication) {
         var vm = this;
 
         blogData.blogList()
@@ -59,6 +59,8 @@
                 vm.data.blogs.splice(index, 1);
             });
         };
+
+        vm.isLoggedIn = authentication.isLoggedIn();
     }
 
     function formatDate() {
