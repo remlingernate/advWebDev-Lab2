@@ -35,7 +35,7 @@
                         $location.path(vm.returnPage);
                     },
                     function errorCallback(err) {
-                        vm.formError = err.data.message;
+                        vm.formError = "Email " + err.data.keyValue.email + " is already in use. Please use another email address to register.";
                     }
                 );
         };
