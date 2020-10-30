@@ -61,6 +61,8 @@
         };
 
         vm.isLoggedIn = authentication.isLoggedIn();
+
+        vm.currentUserEmail = authentication.currentUser();
     }
 
     function formatDate() {

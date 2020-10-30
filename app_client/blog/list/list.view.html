@@ -6,25 +6,24 @@
   <div class='container'>
     <div ng-repeat="blog in vm.data.blogs | orderBy:'createdOn':true">
       <div class='row'>
-	<h2>{{ blog.blogTitle }}</h2>
+		<h2>{{ blog.blogTitle }}</h2>
       </div>
       <div class='row date-and-control'>
-	<div class='col pull-left'>
-	  <h6>
-	    {{ blog.createdOn | formatDate }}
-	  </h6>
-	</div>
-	<div ng-show="vm.isLoggedIn" class='col pull-left'>
-	  <a ng-click="vm.popupEditForm(blog._id)"><i class='fa fa-pencil'></i></a>
-	</div>
-	<div ng-show="vm.isLoggedIn" class='col pull-left'>
-	  <a ng-click="vm.popupDeleteForm(blog._id)"><i class='fa fa-trash'></i></a>
-	</div>
+	  	<div class='col pull-left'>
+		  <h6>
+		    Posted by {{ blog.authorName }} on {{ blog.createdOn | formatDate }}
+		  </h6>
+		</div>
+		<div ng-show="vm.isLoggedIn && vm.currentUserEmail.email == blog.authorEmail" class='col pull-left'>
+		  <a ng-click="vm.popupEditForm(blog._id)"><i class='fa fa-pencil'></i></a>
+		</div>
+		<div ng-show="vm.isLoggedIn && vm.currentUserEmail.email == blog.authorEmail" class='col pull-left'>
+		  <a ng-click="vm.popupDeleteForm(blog._id)"><i class='fa fa-trash'></i></a>
+		</div>
       </div>
       <div class='row'>
-	<p class='blogText'>{{ blog.blogText }}</p>
-
-	<hr/>
+		<p class='blogText'>{{ blog.blogText }}</p>
+		<hr/>
       </div>
     </div>
   </div>
