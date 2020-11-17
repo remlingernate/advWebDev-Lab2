@@ -29,6 +29,9 @@
                 return false;
             }
         };
+        var isValidUser = function(email) {
+            return $http.get('/api/validUser/' + email);
+        };
         var currentUser = function() {
             if (isLoggedIn()) {
                 var token = getToken();
@@ -46,6 +49,7 @@
             login: login,
             logout: logout,
             isLoggedIn: isLoggedIn,
+            isValidUser: isValidUser,
             currentUser: currentUser
         };
     }

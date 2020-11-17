@@ -16,6 +16,9 @@
         <li ng-show="navvm.isLoggedIn">
           <a href='blog/add'>Add Blog</a>
         </li>
+        <li ng-show="navvm.isLoggedIn">
+          <a href='play'>Play Tic-Tac-Toe</a>
+        </li>
         <li ng-hide="navvm.isLoggedIn">
           <a href="login/?page={{ navvm.currentPath }}">Sign in</a>
         </li>

@@ -37,7 +37,6 @@ module.exports.blogsList = function(req, res) {
                 sendJsonResponse(res, 404, err);
                 return;
             }
-            console.log(results);
             sendJsonResponse(res, 200, buildBlogList(req, res, results));
         });
 };

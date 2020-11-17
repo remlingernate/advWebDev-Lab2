@@ -28,6 +28,11 @@
                 controller: 'loginCtrl',
                 controllerAs: 'vm'
             })
+            .when('/play', {
+                templateUrl: 'ticTacToe/ticTacToe.view.html',
+                controller: 'ticTacToeCtrl',
+                controllerAs: 'vm'
+            })
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);

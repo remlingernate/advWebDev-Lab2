@@ -1,0 +1,62 @@
+<navigation></navigation>
+
+<div class='container'>
+    <page-header content="vm.data.title"></page-header>
+
+    <div role='alert' ng-show='vm.formError' class='alert alert-danger'>{{ vm.formError }}</div>
+
+    <div ng-show="vm.data.gameState.board != null">
+        <div class='pull-left' ng-show="vm.data.gameState.playerOne == vm.currentUserEmail">You are X.</div>
+        <div class='pull-left' ng-show="vm.data.gameState.playerTwo == vm.currentUserEmail">You are O.</div>
+
+        <div class='pull-right' ng-show="vm.data.gameState.playerOne == vm.data.gameState.currentPlayer">X is up!</div>
+        <div class='pull-right' ng-show="vm.data.gameState.playerTwo == vm.data.gameState.currentPlayer">O is up!</div>
+
+        <div class='game-container'>
+        <em>Playing against {{ vm.data.gameState.playerOne == vm.currentUserEmail ? vm.data.gameState.playerTwo : vm.data.gameState.playerOne }}</em>
+        <div class='board'>
+            <div id="square_0" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(0)">{{ vm.data.gameState.board[0] }}</div>
+            <div id="square_1" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(1)">{{ vm.data.gameState.board[1] }}</div>
+            <div id="square_2" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(2)">{{ vm.data.gameState.board[2] }}</div>
+            <div id="square_3" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(3)">{{ vm.data.gameState.board[3] }}</div>
+            <div id="square_4" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(4)">{{ vm.data.gameState.board[4] }}</div>
+            <div id="square_5" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(5)">{{ vm.data.gameState.board[5] }}</div>
+            <div id="square_6" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(6)">{{ vm.data.gameState.board[6] }}</div>
+            <div id="square_7" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(7)">{{ vm.data.gameState.board[7] }}</div>
+            <div id="square_8" ng-class="{'player-turn-square': vm.data.gameState.currentPlayer == vm.currentUserEmail && !vm.gameOver, square: true}" ng-click="vm.takeTurn(8)">{{ vm.data.gameState.board[8] }}</div>
+        </div>
+        <h2 ng-show="vm.gameOver && vm.winner != ''">{{ vm.winner }} wins!</h2>
+        <h2 ng-show="vm.gameOver && vm.winner == ''">It's a draw.</h2>
+        <form ng-show="!vm.gameOver" ng-submit="vm.forfeitGame()">
+            <button class='btn btn-primary'>Forfeit</button>
+        </form>
+        <div class='pull-right'>
+            <form class='pull-right' ng-show="vm.gameOver" ng-submit="vm.newGame()">
+                <button class='btn btn-primary'>Rematch</button>
+            </form>
+            <form class='pull-right left-button' ng-show="vm.gameOver" ng-submit="vm.forfeitGame()">
+                <button class='btn btn-default'>I'm Done</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    
+    <div ng-show="vm.data.gameState.board == null" class='mr-1'>
+        <form class='form-horizontal' role='form' ng-submit="vm.startGame()">
+            <div class='form-group row'>
+                <label class='col-xs-10 col-sm-2 control-label' for='opponentEmail'>Opponent Email Address</label>
+                <div class='col-xs-12 col-sm-10'>
+                    <input type='email' ng-model="vm.opponentEmail" id='opponentEmail' class='form-control' name='opponentEmail'>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='pull-right'>
+                    <button class='btn btn-primary'>Start Game</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer-generic></footer-generic>
+</div>
