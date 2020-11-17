@@ -5,7 +5,8 @@
 
     function tttCtrl(authentication, $window, ticTacToe, $interval, $scope) {
         var vm = this;
-        vm.currentUserEmail = authentication.currentUser().email;
+        var currentUser = authentication.currentUser();
+        vm.currentUserEmail = currentUser == null ? "" : currentUser.email;
         vm.gameOver = false;
         vm.winner = '';
 
@@ -83,7 +84,9 @@
                         function errorCallback(response) {
                             vm.data = {
                                 title: "Play Tic-Tac-Toe",
-                                gameState: null
+                                gameState: {
+                                    board: null
+                                }
                             };
                             vm.gameOver = false;
                             vm.winner = '';
